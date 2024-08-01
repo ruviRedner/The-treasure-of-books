@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+ο»Ώusing Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Diagnostics;
 using The_treasure_of_books.DAL;
@@ -53,11 +53,11 @@ namespace The_treasure_of_books.Controllers
         [HttpPost,ValidateAntiForgeryToken]
         public IActionResult Create(Library library)
         {
-            //ξερισ ηαψ μγΰγθΰ αιιρ 
+            //ΧΧ•Χ΅Χ™Χ£ Χ—Χ‘Χ¨ ΧΧ“ΧΧ“ΧΧ Χ‘Χ™Χ™Χ΅ 
             Data.Get.Librarys.Add(library);
-            //ωξιψϊ πϊεπιν αγΰθδ αιιρ
+            //Χ©ΧΧ™Χ¨Χª Χ ΧªΧ•Χ Χ™Χ Χ‘Χ“ΧΧΧ” Χ‘Χ™Χ™Χ΅
             Data.Get.SaveChanges();
-            //ξηζιψ ΰεϊπε μγσ ηαψιν
+            //ΧΧ—Χ–Χ™Χ¨ ΧΧ•ΧªΧ Χ• ΧΧ“Χ£ Χ—Χ‘Χ¨Χ™Χ
             return RedirectToAction("showLibrery");
         }
 
@@ -116,7 +116,7 @@ namespace The_treasure_of_books.Controllers
 
             if (shelvefromDB.Libraryid.genre != book.GenreBook)
             {
-                TempData["name"] = "ζ'ΰπψ μΰ ξϊΰιν μρτψιδ ";
+                TempData["name"] = "Χ–'ΧΧ Χ¨ ΧΧ ΧΧªΧΧ™Χ ΧΧ΅Χ¤Χ¨Χ™Χ” ";
                 return RedirectToAction("CreateBook");
             }
             
@@ -124,7 +124,7 @@ namespace The_treasure_of_books.Controllers
             if(book.BookHeight > shelvefromDB.Height)
             {
 
-                TempData["name"] = "δρτψ βαεδ ξγι εμλο μΰ πλπρ μξςψλϊ ΰπΰ αηψ ξγσ ωιϊΰιν μβεγμε";
+                TempData["name"] = "Χ”Χ΅Χ¤Χ¨ Χ’Χ‘Χ•Χ” ΧΧ“Χ™ Χ•ΧΧ›Χ ΧΧ Χ Χ›Χ Χ΅ ΧΧΧΆΧ¨Χ›Χª ΧΧ Χ Χ‘Χ—Χ¨ ΧΧ“Χ£ Χ©Χ™ΧªΧΧ™Χ ΧΧ’Χ•Χ“ΧΧ•";
                 return RedirectToAction("CreateBook");
             }
 
@@ -133,7 +133,7 @@ namespace The_treasure_of_books.Controllers
                 var difference = shelvefromDB.Height - book.BookHeight;
                 if(difference >= 10)
                 {
-                    TempData["name"] = "δρτψ πλπρ μξςψλϊ ψχ ϊγς ωδεΰ πξεκ ξΰεγ";
+                    TempData["name"] = "Χ”Χ΅Χ¤Χ¨ Χ Χ›Χ Χ΅ ΧΧΧΆΧ¨Χ›Χª Χ¨Χ§ ΧªΧ“ΧΆ Χ©Χ”Χ•Χ Χ ΧΧ•Χ ΧΧΧ•Χ“";
                 }
             }
 
