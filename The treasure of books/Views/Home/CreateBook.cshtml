@@ -1,0 +1,60 @@
+﻿@model The_treasure_of_books.Models.Books
+
+
+@{
+    ViewData["Title"] = "CreateBook";
+}
+
+<h1>הוספת ספר</h1>
+
+@* <h4></h4> *@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddBook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookHeight" class="control-label"></label>
+                <input asp-for="BookHeight" class="form-control" />
+                <span asp-validation-for="BookHeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenreBook" class="control-label"></label>
+                <input type="text" asp-for="GenreBook" class="form-control" />
+                <span asp-validation-for="GenreBook" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="shid" class="control-label"></label>
+                <input hidden="hidden" asp-for="shid" class="form-control" value="@ViewBag.id" />
+                <span asp-validation-for="shid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+
+                <p>"@TempData["name"]"</p>
+            </div>
+            
+            
+               
+            
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="showBooks">רשימת ספרים</a>
+    <br />
+    <a asp-action="showShelves">רשימת מדפים</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<The_treasure_of_books.Models.Books>
+
+@{
+    ViewData["Title"] = "showBooks";
+}
+
+<h1>ספרים</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookHeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelveid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreBook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookHeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shelveid.Id)
+            </td>
+            <td>
+              @*   @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

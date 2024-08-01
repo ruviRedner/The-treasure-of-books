@@ -1,0 +1,45 @@
+﻿@model The_treasure_of_books.Models.Shelves
+
+@{
+    ViewData["Title"] = "AddShelve";
+}
+
+<h1>הוספת מדפים</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateShelve">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @*  <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lid" class="control-label"></label>
+                <input hidden asp-for="lid" class="form-control" value="@ViewBag.id" />
+                <span asp-validation-for="lid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                @* <a asp-action="CreateShelve" asp-route-id="@ViewBag.id">Edit</a> *@
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Librery">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
